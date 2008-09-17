@@ -154,3 +154,12 @@ background: radial-gradient(to top left, #636E72, #2D3436);
 .logo {
 	width: 20rem;
 }
+
+.buttons a {
+	text-decoration: none;
+	color: white;
+}
+
+.buttons a:hover {
+	color: white;
+}

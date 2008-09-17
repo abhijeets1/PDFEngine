@@ -1,34 +1,45 @@
 <div class="col-lg-8 mt-4">
-	<div class="row justify-content-around">
-		<a class="box g10 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdfsearchindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="PDF Search">
-			<i class="fas fa-search centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+	<div class="buttons row justify-content-around text-center">
+		<a class="col box g10 rounded shadow p-4 m-2" href="{% url 'pdfsearchindex' %}">
+			<i class="fas fa-search" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Search eBooks</b></p>
 		</a>
-		<a class="box g9 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'customsearchindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Custom Search">
-			<i class="fas fa-search-plus centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g9 rounded shadow p-4 m-2" href="{% url 'customsearchindex' %}">
+			<i class="fas fa-search-plus" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Search PDFs</b></p>
 		</a>
-		<a class="box g8 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdfmergeindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf Merge">
-			<i class="fas fa-plus-square centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<div class="w-100"></div>
+		<a class="col box g8 rounded shadow p-4 m-2" href="{% url 'pdfmergeindex' %}">
+			<i class="fas fa-plus-square" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Merge PDFs</b></p>
 		</a>
-		<a class="box g7 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdfsplitindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf Split">
-			<i class="fas fa-minus-square centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g7 rounded shadow p-4 m-2" href="{% url 'pdfsplitindex' %}">
+			<i class="fas fa-minus-square" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Split PDF</b></p>
 		</a>
-		<a class="box g6 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdfencryptindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf Encrypt">
-			<i class="fas fa-lock centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g6 rounded shadow p-4 m-2" href="{% url 'pdfencryptindex' %}">
+			<i class="fas fa-lock" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Encrypt PDF</b></p>
 		</a>
-		<a class="box g5 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdfdecryptindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf Decrypt">
-			<i class="fas fa-lock-open centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g5 rounded shadow p-4 m-2" href="{% url 'pdfdecryptindex' %}">
+			<i class="fas fa-lock-open" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Decrypt PDF</b></p>
 		</a>
-		<a class="box g4 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'imgtopdfindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Images to Pdf">
-			<i class="fas fa-file-pdf centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g4 rounded shadow p-4 m-2" href="{% url 'imgtopdfindex' %}">
+			<i class="fas fa-file-pdf" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Images to PDF</b></p>
 		</a>
-		<a class="box g3 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdftoimgindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf to Images">
-			<i class="fas fa-images centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g3 rounded shadow p-4 m-2" href="{% url 'pdftoimgindex' %}">
+			<i class="fas fa-images" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>PDF to Images</b></p>
 		</a>
-		<a class="box g2 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'pdftowordindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Pdf to Word">
-			<i class="fas fa-file-word centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g2 rounded shadow p-4 m-2" href="{% url 'pdftowordindex' %}">
+			<i class="fas fa-file-word" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>PDF to Word</b></p>
 		</a>
-		<a class="box g1 rounded col-1 shadow mb-4 text-white p-0" href="{% url 'imgtotextindex' %}" style="height:9rem; width:9rem;" data-toggle="tooltip" data-placement="top" title="Image to Text">
-			<i class="fas fa-align-justify centerBlock" style="height: 3.5rem; width: 3.5rem;"></i>
+		<a class="col box g1 rounded shadow p-4 m-2" href="{% url 'imgtotextindex' %}">
+			<i class="fas fa-align-justify" style="height: 3.5rem; width: 3.5rem;"></i>
+			<p class="m-0"><b>Image to Text</b></p>
 		</a>
 	</div>
 </div>
