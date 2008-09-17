@@ -8,3 +8,4 @@ img2pdf
 pdf2image
 pdf2docx
 pytesseract
+pikepdf

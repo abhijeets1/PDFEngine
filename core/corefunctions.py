@@ -1,6 +1,7 @@
 from PyPDF2 import PdfFileMerger, PdfFileReader, PdfFileWriter
 from pdf2image import convert_from_path
 from pytesseract import pytesseract
+from pikepdf import Pdf, Encryption
 from pdf2docx import parse
 from PIL import Image
 import img2pdf
@@ -69,11 +70,11 @@ def encrypt_file(file, password, timestamp):
 	if pdfreader.isEncrypted:
 		return True
 
-	pdfwriter = PdfFileWriter()
-	pdfwriter.appendPagesFromReader(pdfreader)
-	pdfwriter.encrypt(user_pwd=password, owner_pwd=password)
-	with open(encrypted_file_path, 'wb+') as f:
-		pdfwriter.write(f)
+	pdf = Pdf.open(pdf_file_path)
+	pdf.save(encrypted_file_path,
+		encryption = Encryption(owner=password, user=password, R=6)
+	)
+	pdf.close()
 
 	return encrypted_file_name
 
@@ -85,16 +86,14 @@ def decrypt_file(file, password, timestamp):
 
 	pdfreader = PdfFileReader(pdf_file_path)
 	if pdfreader.isEncrypted:
-		result = pdfreader.decrypt(password=password)
-		if result == 0:
+		try:
+			pdf = Pdf.open(pdf_file_path, password=password)
+		except Exception:
 			return True
 	else:
 		return True
 		
-	pdfwriter = PdfFileWriter()
-	pdfwriter.appendPagesFromReader(pdfreader)
-	with open(decrypted_file_path, 'wb+') as f:
-		pdfwriter.write(f)
+	pdf.save(decrypted_file_path)
 
 	return decrypted_file_name
 
