@@ -13,10 +13,13 @@
 			<div class="col-lg-5 col-10 bg-white p-5 rounded shadow-sm">
 				<form action="" method="POST" enctype="multipart/form-data" novalidate>
 					{% csrf_token %}
-					{% if form.non_field_errors %}
+					{% if form.non_field_errors or exceptions %}
 						<div class="alert alert-danger p-2">
 							{% for error in form.non_field_errors %}
 								<p class="m-0">{{error}}</p>
+							{% endfor %}
+							{% for exception in exceptions %}
+								<p class="m-0">{{exception}}</p>
 							{% endfor %}
 						</div>
 					{% endif %}

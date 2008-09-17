@@ -18,8 +18,12 @@ def index(request):
 			filename_b = file.name
 			file.name = timestamp + ' ' + file.name
 			cfs.handle_uploaded_file(file, location)
-			if cfs.validate_pdf_split(file.name, pageno, nofpages):
-				return HttpResponseRedirect('./')
+			exceptions = cfs.validate_pdf_split(file.name, pageno, nofpages)
+			if len(exceptions) > 0:
+				print(exceptions)
+				return render(request, "pdfsplit/index.html",
+					{'form':form, 'exceptions':exceptions}
+				)
 			splited_file_name = cfs.split_file(file, pageno, nofpages, timestamp)
 			return render(request, "pdfsplit/split.html",
 				{'filename':filename_b, 'splited_file_name':splited_file_name,}

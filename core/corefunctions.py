@@ -50,15 +50,19 @@ def validate_pdf_split(filename, pageno, nofpages):
 	pdf = open(pdf_file_path, 'rb+')
 	pdfreader = PdfFileReader(pdf)
 	pdfpages = pdfreader.numPages
-	temp = (pdfpages - pageno)+1
+	temp = (pdfpages - pageno) + 1
+	exceptions = []
 
-	if (pageno > 0 and nofpages > 0):	
-		if not (pageno <= pdfpages and (temp >= nofpages)):
-			return True
-		else:
-			return False
-	else:
-		return True
+	if not (pageno > 0):	
+		exceptions.append('Initial page number is zero or less than 0!')
+	if not (pageno <= pdfpages):
+		exceptions.append('Initial page number is more than total pages!')
+	if not (nofpages > 0):
+		exceptions.append('Number of pages is zero or less than 0!')
+	if not (temp >= nofpages):
+		exceptions.append('Number of pages is off limit!')
+
+	return exceptions
 
 # ----- pdfencrypt functions -----
 def encrypt_file(file, password, timestamp):
