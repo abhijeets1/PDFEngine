@@ -16,9 +16,11 @@ def index(request):
 			filename_b = file.name
 			file.name = timestamp + ' ' + file.name
 			cfs.handle_uploaded_file(file, location)
-			encrpyted_file_name = cfs.encrypt_file(file, password, timestamp)
-			if encrpyted_file_name == True:
-				return HttpResponseRedirect('./')
+			encrpyted_file_name, exceptions = cfs.encrypt_file(file, password, timestamp)
+			if len(exceptions) > 0:
+				return render(request, "pdfencrypt/index.html",
+					{'form':form, 'exceptions': exceptions}
+				)
 			return render(request, "pdfencrypt/encrypt.html",
 				{'filename':filename_b, 'encrpyted_file_name':encrpyted_file_name,}
 			)

@@ -14,9 +14,8 @@ class FilesForm(forms.Form):
 		exceptions = []
 
 		for file in self.files.getlist("files"):
-			print(file.content_type)
 			if not (file.content_type == 'application/pdf'):
-				exceptions.append('Selected file type is not pdf!')
+				exceptions.append('Selected file is not a PDF!')
 			if not (file.size <= 15728640):
 				exceptions.append('Selected file size is more than 15mb!')
 
@@ -37,9 +36,8 @@ class FileForm(forms.Form):
 		exceptions = []
 
 		for file in self.files.getlist("file"):
-			print(file.content_type)
 			if not (file.content_type == 'application/pdf'):
-				exceptions.append('Selected file type is not pdf!')
+				exceptions.append('Selected file is not a PDF!')
 			if not (file.size <= 15728640):
 				exceptions.append('Selected file size is more than 15mb!')
 
@@ -60,7 +58,7 @@ class PassFileForm(forms.Form):
 		label = 'Select PDF:',
 		help_text = 'Size limit: 15mb',
 		widget=forms.ClearableFileInput(
-			attrs={'class':'form-control'}
+			attrs={'class':'form-control', 'autocomplete':'on'}
 		),
 	)
 
@@ -68,9 +66,8 @@ class PassFileForm(forms.Form):
 		exceptions = []
 
 		for file in self.files.getlist("file"):
-			print(file.content_type)
 			if not (file.content_type == 'application/pdf'):
-				exceptions.append('Selected file type is not pdf!')
+				exceptions.append('Selected file is not a PDF!')
 			if not (file.size <= 15728640):
 				exceptions.append('Selected file size is more than 15mb!')
 
@@ -93,11 +90,10 @@ class ImagesForm(forms.Form):
 
 		for file in self.files.getlist("files"):
 			if not (file.content_type in imageformats):
-				exceptions.append('Selected file type is not image!')
+				exceptions.append('Selected file is not an image!')
 			if not (file.size <= 5242880):
 				exceptions.append('Selected file size is more than 5mb!')
 
-		print(exceptions)
 		if len(exceptions) > 0:
 			raise forms.ValidationError(exceptions)
 
@@ -117,11 +113,10 @@ class ImageForm(forms.Form):
 
 		for file in self.files.getlist("file"):
 			if not (file.content_type in imageformats):
-				exceptions.append('Selected file type is not image!')
+				exceptions.append('Selected file is not an image!')
 			if not (file.size <= 5242880):
 				exceptions.append('Selected file size is more than 5mb!')
 
-		print(exceptions)
 		if len(exceptions) > 0:
 			raise forms.ValidationError(exceptions)
 

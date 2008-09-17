@@ -16,9 +16,11 @@ def index(request):
 			filename_b = file.name
 			file.name = timestamp + ' ' + file.name
 			cfs.handle_uploaded_file(file, location)
-			decrypted_file_name = cfs.decrypt_file(file, password, timestamp)
-			if decrypted_file_name == True:
-				return HttpResponseRedirect('./')
+			decrypted_file_name, exceptions = cfs.decrypt_file(file, password, timestamp)
+			if len(exceptions) > 0:
+				return render(request, "pdfdecrypt/index.html",
+					{'form':form, 'exceptions': exceptions}
+				)
 			return render(request, "pdfdecrypt/decrypt.html",
 				{'filename':filename_b, 'decrypted_file_name':decrypted_file_name,}
 			)

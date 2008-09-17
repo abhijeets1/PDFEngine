@@ -31,7 +31,7 @@ class SplitForm(forms.Form):
 
 		for file in self.files.getlist("file"):
 			if not (file.content_type == 'application/pdf'):
-				exceptions.append('Selected file type is not pdf!')
+				exceptions.append('Selected file is not a PDF!')
 			if not (file.size <= 15728640):
 				exceptions.append('Selected file size is more than 15mb!')
 

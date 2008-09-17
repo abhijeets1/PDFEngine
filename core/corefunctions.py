@@ -69,37 +69,42 @@ def encrypt_file(file, password, timestamp):
 	pdf_file_path = 'pdfencrypt/static/upload/' + file.name
 	encrypted_file_name = timestamp + '.pdf'
 	encrypted_file_path = 'pdfencrypt/static/upload/encrypted/' + encrypted_file_name
+	exceptions = []
 
 	pdfreader = PdfFileReader(pdf_file_path)
 	if pdfreader.isEncrypted:
-		return True
+		exceptions.append('PDF file is already encryted!')
 
-	pdf = Pdf.open(pdf_file_path)
-	pdf.save(encrypted_file_path,
-		encryption = Encryption(owner=password, user=password, R=6)
-	)
-	pdf.close()
-
-	return encrypted_file_name
+	if len(exceptions) > 0:
+		return ('', exceptions)
+	else:
+		pdf = Pdf.open(pdf_file_path)
+		pdf.save(encrypted_file_path,
+			encryption = Encryption(owner=password, user=password, R=6)
+		)
+		pdf.close()
+		return (encrypted_file_name, [])
 
 # ----- pdfdecrypt functions -----
 def decrypt_file(file, password, timestamp):
 	pdf_file_path = 'pdfdecrypt/static/upload/' + file.name
 	decrypted_file_name = timestamp + '.pdf'
 	decrypted_file_path = 'pdfdecrypt/static/upload/decrypted/' + decrypted_file_name
+	exceptions = []
 
 	pdfreader = PdfFileReader(pdf_file_path)
-	if pdfreader.isEncrypted:
-		try:
-			pdf = Pdf.open(pdf_file_path, password=password)
-		except Exception:
-			return True
-	else:
-		return True
-		
-	pdf.save(decrypted_file_path)
+	if not pdfreader.isEncrypted:
+		exceptions.append('PDF file is not encryted!')
+	try:
+		pdf = Pdf.open(pdf_file_path, password=password)
+	except Exception:
+		exceptions.append('Incorrect password!')
 
-	return decrypted_file_name
+	if len(exceptions) > 0:
+		return ('', exceptions)
+	else:
+		pdf.save(decrypted_file_path)
+		return (decrypted_file_name, [])
 
 # ----- imgtopdf functions -----
 def image_to_pdf(filenames, timestamp):
