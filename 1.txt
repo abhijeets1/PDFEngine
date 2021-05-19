@@ -1,5 +1,0 @@
-PyPDF2
-time
-mimetypes
-
-"Ubuntu","Helvetica","Arial","FreeSans",sans-serif
