@@ -1,0 +1,148 @@
+html {
+	background: #F0F3F5;
+}
+
+img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.atag-b {
+	text-decoration: none;
+	color: black;
+}
+
+.atag-b:hover {
+	color: #009433;
+	font-weight: bold;
+}
+
+ul {
+	list-style: none;
+}
+
+.g1 {
+background: #55EFC4;
+background: -webkit-radial-gradient(bottom right, #55EFC4, #00B895);
+background: -moz-radial-gradient(bottom right, #55EFC4, #00B895);
+background: radial-gradient(to top left, #55EFC4, #00B895);
+}
+
+.g2 {
+background: #81ECEC;
+background: -webkit-radial-gradient(bottom right, #81ECEC, #00CEC9);
+background: -moz-radial-gradient(bottom right, #81ECEC, #00CEC9);
+background: radial-gradient(to top left, #81ECEC, #00CEC9);
+}
+
+.g3 {
+background: #74B9FF;
+background: -webkit-radial-gradient(bottom right, #74B9FF, #0985E3);
+background: -moz-radial-gradient(bottom right, #74B9FF, #0985E3);
+background: radial-gradient(to top left, #74B9FF, #0985E3);
+}
+
+.g4 {
+background: #A39CFE;
+background: -webkit-radial-gradient(bottom right, #A39CFE, #6C5CE7);
+background: -moz-radial-gradient(bottom right, #A39CFE, #6C5CE7);
+background: radial-gradient(to top left, #A39CFE, #6C5CE7);
+}
+
+.g5 {
+background: #D5DBDE;
+background: -webkit-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
+background: -moz-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
+background: radial-gradient(to top left, #D5DBDE, #9EA7AA);
+}
+
+.g6 {
+background: #FFE592;
+background: -webkit-radial-gradient(bottom right, #FFE592, #FFBF47);
+background: -moz-radial-gradient(bottom right, #FFE592, #FFBF47);
+background: radial-gradient(to top left, #FFE592, #FFBF47);
+}
+
+.g7 {
+background: #FAB1A0;
+background: -webkit-radial-gradient(bottom right, #FAB1A0, #E17055);
+background: -moz-radial-gradient(bottom right, #FAB1A0, #E17055);
+background: radial-gradient(to top left, #FAB1A0, #E17055);
+}
+
+.g8 {
+background: #FF7675;
+background: -webkit-radial-gradient(bottom right, #FF7675, #D63132);
+background: -moz-radial-gradient(bottom right, #FF7675, #D63132);
+background: radial-gradient(to top left, #FF7675, #D63132);
+}
+
+.g9 {
+background: #FD7AA9;
+background: -webkit-radial-gradient(bottom right, #FD7AA9, #E84494);
+background: -moz-radial-gradient(bottom right, #FD7AA9, #E84494);
+background: radial-gradient(to top left, #FD7AA9, #E84494);
+}
+
+.g10 {
+background: #636E72;
+background: -webkit-radial-gradient(bottom right, #636E72, #2D3436);
+background: -moz-radial-gradient(bottom right, #636E72, #2D3436);
+background: radial-gradient(to top left, #636E72, #2D3436);
+}
+
+.box {
+	transition: 0.5s;
+}
+
+.box:hover {
+	transition: 0.5s;
+	transform: scale(0.85);
+}
+
+.centerBlock {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.atag-w {
+	text-decoration: none;
+	color: white;
+}
+
+.atag-w:hover {
+	color: #009433;
+	font-weight: bold;
+}
+
+.mb-10 {
+	margin-bottom: 10rem;
+}
+
+
+.rotating {
+	transition: 0.5s;
+}
+
+.rotating:hover {
+  animation: rotating 1s linear infinite;
+}
+
+.rotating-always {
+	animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo {
+	width: 20rem;
+}

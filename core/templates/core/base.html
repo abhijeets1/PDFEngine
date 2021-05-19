@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Pdf Engine</title>
+		{% block cssstyle %}
+			<link rel="stylesheet" type="text/css" href="{% static 'core/css/style.css' %}">
+		{% endblock %}
+		<link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'core/css/fontawesome.css' %}">
+		<script type="text/javascript" src="{% static 'core/js/jquery.js' %}"></script>
+		<script type="text/javascript" src="{% static 'core/js/popper.js' %}"></script>
+		<script type="text/javascript" src="{% static 'core/js/bootstrap.js' %}"></script>
+		<script type="text/javascript" src="{% static 'core/js/fontawesome.js' %}"></script>
+	</head>
+	<body class="p-0 container-fluid bg-transparent">
+		{% include 'core/header.html' %}
+		{% block content %}{% endblock %}
+		{% include 'core/footer.html' %}
+	</body>
+</html>

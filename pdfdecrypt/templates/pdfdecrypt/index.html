@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+	<div class="container-fluid mt-5">
+		<div class="row justify-content-around">
+			<div class="col-lg-5 bg-white p-2 rounded text-center shadow-sm">
+				<h2>DECRYPT PDF</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid mt-4 mb-10">
+		<div class="row justify-content-center">
+			<div class="col-lg-5 bg-white p-5 text-center rounded shadow-sm">
+				<form action="{% url 'decrypt' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<p><b>Select Pdf:</b></p>
+					<div class="mb-4">{{form.password}}</div>
+					<div class="input-group">
+						{{form.file}}
+						<div class="input-group-append">
+							<button class="btn btn-success" type="submit"><i class="fas fa-file-upload"></i></button>
+						</div>
+					</div>
+				</form>
+				<div class="alert alert-warning p-2 mt-4" role="alert" style="text-align: left;">
+					Note:<br>
+					1. Only PDFs under 15mb.<br>
+					2. Password field shouldn't be empty.<br>
+					3. PDF must have password to decrypt.
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

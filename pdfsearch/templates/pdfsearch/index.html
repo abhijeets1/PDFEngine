@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+	<div class="text-center mt-5">
+		<img class="logo" src="{% static 'pdfsearch/images/logo2.png' %}">
+	</div>
+	<div class="container search-bar mt-5">
+		<form class="row justify-content-center" action="{% url 'pdfsearch' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+			<div class="col-lg-8">
+				<div class="input-group">
+					{{form.search_bar}}
+					<div class="input-group-append">
+						<button style="height:3rem; width:3rem;" class="btn btn-success" type="submit">
+						<i class="fas fa-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8 p-2 text-center">
+				{{form.global_key.label_tag}} {{form.global_key}}
+			</div>
+			<div class="row p-5 align-content-center">
+				{% include 'pdfsearch/options.html' %}
+			</div>
+		</form>
+	</div>
+{% endblock %}

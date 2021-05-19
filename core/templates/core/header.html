@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{% url 'index' %}"><b>PDF ENGINE</b></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="{% url 'index' %}">
+						<i class="fas fa-home"></i> Home
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="{% url 'sitedes' %}">
+						<i class="fas fa-info"></i> Description
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="{% url 'aboutdevs' %}">
+						<i class="fas fa-user-friends"></i> About Developers
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'pdflist' %}">
+						<i class="fas fa-copy"></i> PDFs List
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

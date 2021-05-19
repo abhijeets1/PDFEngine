@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+	{% include 'core/des.html' %}
+	<div class="row p-5">
+		<div class="col-12 mb-4">
+			<p class="text-center" style="font-size: 2rem;"><b>TECHNOLOGIES</b></p>
+		</div>
+		{% include 'core/fnd-bnd.html' %}
+		{% include 'core/db-musd.html' %}
+		{% include 'core/features.html' %}
+	</div>
+</div>
+{% endblock %}

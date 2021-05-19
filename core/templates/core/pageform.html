@@ -1,0 +1,11 @@
+{% ifequal request.get_full_path '/customsearch/customsearch/' %}
+	<form class="d-inline" action="{% url 'cspage' %}" method="post"> {% csrf_token %}
+	{% else %}
+		<form class="d-inline" action="{% url 'page' %}" method="post"> {% csrf_token %}
+		{% endifequal %}
+		<input type="text" id="pdf" name="pdf" value="{{pdf}}" hidden>
+		<input type="text" id="page_no" name="page_no" value="{{page_no}}" hidden>
+		{{page_form.search_text}}
+		{{page_form.global_key}}
+		<input class="btn btn-light btn-sm" type="submit" value="Search Full Page">
+	</form>
