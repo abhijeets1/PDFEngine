@@ -1,10 +1,11 @@
 django
 django_heroku
+gunicorn
 pdfplumber
 PyPDF2
 pillow
 img2pdf
 pdf2image
 pdf2docx
+tesseract-ocr
 pytesseract
-gunicorn

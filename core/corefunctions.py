@@ -152,10 +152,10 @@ def img_to_text(file, timestamp):
 	image_file_path = 'imgtotext/static/upload/' + file.name
 	text_file_name = timestamp + '.txt'
 	text_file_path = 'imgtotext/static/upload/totext/' + text_file_name
-	tesseract_path = 'imgtotext/Tesseract-OCR/tesseract.exe'
+	# tesseract_path = 'imgtotext/Tesseract-OCR/tesseract.exe'
 
 	img = Image.open(image_file_path)
-	pytesseract.tesseract_cmd = tesseract_path
+	# pytesseract.tesseract_cmd = tesseract_path
 	text = pytesseract.image_to_string(img)
 	textfile = open(text_file_path , 'w+')
 	textfile.write(text)
