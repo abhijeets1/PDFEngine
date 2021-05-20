@@ -7,5 +7,4 @@ pillow
 img2pdf
 pdf2image
 pdf2docx
-tesseract-ocr
 pytesseract
