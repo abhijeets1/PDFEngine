@@ -142,7 +142,6 @@ def book(request):
 			'limit':limit,
 		}
 	)
-	print(type(pdf))
 	return render(request, 'core/book.html',
 		context={
 			'pdf':pdfname,
