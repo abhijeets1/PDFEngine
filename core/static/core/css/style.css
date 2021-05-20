@@ -1,5 +1,13 @@
+body {
+  position: relative;
+}
+
 html {
 	background: #F0F3F5;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 img {
