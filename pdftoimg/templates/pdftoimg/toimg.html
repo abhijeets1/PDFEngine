@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-	<div class="container-fluid mt-5">
+	<div class="container-fluid mt-5 mb-10">
 		<div class="row justify-content-center">
 			<div class="col-lg-5 bg-white p-5 rounded shadow-sm">
 				<p><b>Selected Image:</b></p>
@@ -10,7 +10,7 @@
 		</div>
 		<div class="row justify-content-center mt-4">
 			{% for imagename in imagesname %}
-			<a class="g5 col-lg-5 text-center p-2 mb-3 rounded shadow text-white text-decoration-none" href="../../static/upload/toimg/{{timestamp}}/{{imagename}}" target="_blank">
+			<a class="g3 col-lg-5 text-center p-2 mb-3 rounded shadow text-white text-decoration-none" href="../../static/upload/toimg/{{timestamp}}/{{imagename}}" target="_blank">
 				<b>{{imagename}}</b>
 			</a>
 			<div class="col-12"></div>
