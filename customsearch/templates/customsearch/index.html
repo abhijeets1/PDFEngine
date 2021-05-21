@@ -6,7 +6,7 @@
 	</div>
 	<div class="container mt-5 mb-10">
 		<form class="row justify-content-center" action="{% url 'customsearch' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
-			<div class="col-lg-8 col-10 p-5 bg-white rounded shadow-sm">
+			<div class="col-lg-8 col-10 p-4 p-lg-5 bg-white rounded shadow-sm">
 				<div class="input-group mb-4">
 					{{form.search_bar}}
 					<div class="input-group-append">
