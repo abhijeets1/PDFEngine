@@ -52,9 +52,9 @@ def customsearch(request):
 				if (data.find(item) != -1):
 					text_dict[filename][page+1] = ' '.join(data.split()[:100]) + '...'
 					break
-			else:
-				if limit < 20:
-					limit += 1
+				else:
+					if limit < 30:
+						limit += 1
 			page += 1
 		pdf.close()
 		

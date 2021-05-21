@@ -4,6 +4,7 @@ from core import corefunctions as  cfs
 from django.shortcuts import render
 from .models import Pdf
 import pdfplumber
+import time
 
 # Create your views here.
 def index(request):
@@ -37,7 +38,7 @@ def pdfsearch(request):
 	for pdf_id in text_dict.keys():
 		pdf = pdfplumber.open('pdfs/' + str(pdf_id) + ".pdf")
 		n = len(pdf.pages)
-		limit = 5
+		limit = 10
 		page = 0
 		while page < (n if n < limit else limit):
 			data = str(pdf.pages[page].extract_text())
@@ -45,11 +46,20 @@ def pdfsearch(request):
 				if (data.find(item) != -1):
 					text_dict[pdf_id][page+1] = ' '.join(data.split()[:100]) + '...'
 					break
-			else:
-				if limit < 20:
-					limit += 1
+				else:
+					if limit < 30:
+						limit += 1
 			page += 1
+		# print(time.asctime(time.localtime(time.time())))
+		# while page < n:
+		# 	data = str(pdf.pages[page].extract_text())
+		# 	for item in search_text_list:
+		# 		if (data.find(item) != -1):
+		# 			text_dict[pdf_id][page+1] = ' '.join(data.split()[:100]) + '...'
+		# 			break
+		# 	page += 1
 		pdf.close()
+		# print(time.asctime(time.localtime(time.time())))
 
 	page_form = PageForm(
 		auto_id=False,
