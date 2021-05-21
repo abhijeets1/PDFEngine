@@ -7,9 +7,9 @@
 		{{book_form.search_text}}
 		{{book_form.global_key}}
 		{{book_form.limit}}
-		{% ifequal request.get_full_path '/customsearch/customsearch/' %}
-			<input class="btn btn-success btn-sm" type="submit" value="Search Full Book">
-		{% else %}
+		{% if '/book/' in request.get_full_path %}
 			<input class="btn btn-success btn-sm" type="submit" value="Load More Pages">
-		{% endifequal %}
+		{% else %}
+			<input class="btn btn-success btn-sm" type="submit" value="Search Full Book">
+		{% endif %}
 	</form>

@@ -47,7 +47,7 @@ def customsearch(request):
 		page = 0
 		limit = 5
 		while page < (n if n < limit else limit):
-			data = pdf.pages[page].extract_text()
+			data = str(pdf.pages[page].extract_text())
 			for item in search_text_list:
 				if (data.find(item) != -1):
 					text_dict[filename][page+1] = ' '.join(data.split()[:100]) + '...'
@@ -98,7 +98,7 @@ def page(request):
 
 	pdf_path = 'customsearch/static/upload/'
 	pdf = pdfplumber.open('customsearch/static/upload/' + pdf)
-	page_text = pdf.pages[page_no-1].extract_text()
+	page_text = str(pdf.pages[page_no-1].extract_text())
 	pdf.close()
 
 	return render(request, 'core/page.html',
@@ -129,7 +129,7 @@ def book(request):
 	pdf = pdfplumber.open(pdf_path + pdfname)
 	n = len(pdf.pages)
 	for page in range(n if n < limit else limit):
-		data = pdf.pages[page].extract_text()
+		data = str(pdf.pages[page].extract_text())
 		text_dict[str((page)+1)] = data
 	pdf.close()
 
