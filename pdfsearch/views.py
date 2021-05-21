@@ -22,6 +22,10 @@ def pdfsearch(request):
 					pdf_id = int(field[4:])
 					text_dict[pdf_id]={}
 					text_dict[pdf_id]['pdf_info'] = Pdf.objects.get(pk=pdf_id)
+		else:
+			return HttpResponseRedirect('../')
+	else:
+		return HttpResponseRedirect('../')
 
 	if global_key == 'True':
 		search_text_list = [search_text.capitalize(), search_text.lower(), search_text.upper()]
