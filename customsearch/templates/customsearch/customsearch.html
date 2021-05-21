@@ -23,7 +23,7 @@
 							{% for page_no, page_text in inner_dict.items %}
 								<div class="col-12">
 									<hr><b><p class="text-center">Page no. {{page_no}}</p></b>
-									<p class="lh-base" style="text-align: justify;">{{page_text|highlight_all_search:search_text_list}}
+									<p class="lh-lg" style="text-align: justify;">{{page_text|highlight_all_search:search_text_list}}
 									</p>
 									{% include 'core/pageform.html' %}
 									{% include 'core/bookform.html' %}
