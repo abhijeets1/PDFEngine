@@ -49,7 +49,7 @@ def pdfsearch(request):
 				if limit < 20:
 					limit += 1
 			page += 1
-	pdf.close()
+		pdf.close()
 
 	page_form = PageForm(
 		auto_id=False,

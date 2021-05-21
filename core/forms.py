@@ -121,5 +121,8 @@ class PdfSearchForm(forms.Form):
 
 	def clean(self):
 		cleaned_data = super().clean()
-		if True not in cleaned_data.values():
+		pdf_options = {key: value for key, value in cleaned_data.items() if 'pdf_' in key}
+
+		print(pdf_options.values())
+		if True not in pdf_options.values():
 			raise forms.ValidationError('')
