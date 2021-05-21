@@ -6,8 +6,8 @@
 	</div>
 	<div class="container search-bar mt-5">
 		<form class="row justify-content-center" action="{% url 'pdfsearch' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
-			<div class="col-lg-8 col-10">
-				<div class="input-group">
+			<div class="col-lg-8 col-10 p-5 bg-white rounded shadow-sm">
+				<div class="input-group mb-4">
 					{{form.search_bar}}
 					<div class="input-group-append">
 						<button style="height:3rem; width:3rem;" class="btn btn-success" type="submit">
@@ -15,9 +15,13 @@
 						</button>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-8 col-10 p-2 text-center">
-				{{form.global_key.label_tag}} {{form.global_key}}
+				<div class="text-center mb-4">
+					{{form.global_key.label_tag}} {{form.global_key}}
+				</div>
+				<div class="alert alert-warning p-2 m-0" role="alert" style="text-align: left;">
+					Note:<br>
+					1. Select atleast 1 PDF for searching.<br>
+				</div>
 			</div>
 			<div class="row p-5 align-content-center">
 				{% include 'pdfsearch/options.html' %}
