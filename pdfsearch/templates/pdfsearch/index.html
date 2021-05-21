@@ -6,7 +6,7 @@
 	</div>
 	<div class="container search-bar mt-5">
 		<form class="row justify-content-center" action="{% url 'pdfsearch' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
-			<div class="col-lg-8">
+			<div class="col-lg-8 col-10">
 				<div class="input-group">
 					{{form.search_bar}}
 					<div class="input-group-append">
@@ -16,7 +16,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-8 p-2 text-center">
+			<div class="col-lg-8 col-10 p-2 text-center">
 				{{form.global_key.label_tag}} {{form.global_key}}
 			</div>
 			<div class="row p-5 align-content-center">
