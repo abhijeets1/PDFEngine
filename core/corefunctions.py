@@ -128,7 +128,7 @@ def pdf_to_image(file, timestamp):
 	imagesname = []
 
 	os.mkdir(images_folder_path)
-	images = convert_from_path(pdf_file_path, poppler_path = 'pdftoimg/poppler/bin')
+	images = convert_from_path(pdf_file_path)
 	for i in range(len(images)):
 		imagename = 'page' + str(i) + '.jpg'
 		images[i].save(imagepath + imagename, 'JPEG')
