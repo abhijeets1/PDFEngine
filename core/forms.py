@@ -1,74 +1,129 @@
 from django import forms
 
 class FilesForm(forms.Form):
-	files = forms.FileField(widget=forms.ClearableFileInput(
-		attrs={'multiple': True, 'class':'form-control'}
-	))
+	files = forms.FileField(
+		required = True,
+		label = 'Select PDFs:',
+		help_text = 'Size limit: 15mb',
+		widget=forms.ClearableFileInput(
+			attrs={'multiple': True, 'class':'form-control'}
+		)
+	)
 
 	def clean(self):
+		exceptions = []
+
 		for file in self.files.getlist("files"):
-			if not (file.content_type == 'application/pdf' and file.size <= 15728640):
-				raise forms.ValidationError('')
+			print(file.content_type)
+			if not (file.content_type == 'application/pdf'):
+				exceptions.append('Selected file type is not pdf!')
+			if not (file.size <= 15728640):
+				exceptions.append('Selected file size is more than 15mb!')
+
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
 
 class FileForm(forms.Form):
-	file = forms.FileField(widget=forms.ClearableFileInput(attrs={'class':'form-control'}))
+	file = forms.FileField(
+		required = True,
+		label = 'Select PDF:',
+		help_text = 'Size limit: 15mb',
+		widget=forms.ClearableFileInput(
+			attrs={'class':'form-control'}
+		),
+	)
 
 	def clean(self):
+		exceptions = []
+
 		for file in self.files.getlist("file"):
-			if not (file.content_type == 'application/pdf' and file.size <= 15728640):
-				raise forms.ValidationError('')
+			print(file.content_type)
+			if not (file.content_type == 'application/pdf'):
+				exceptions.append('Selected file type is not pdf!')
+			if not (file.size <= 15728640):
+				exceptions.append('Selected file size is more than 15mb!')
 
-class SplitForm(forms.Form):
-	pageno = forms.IntegerField(required = True, widget = forms.NumberInput(
-		attrs={'class':'form-control', 'placeholder':'Initial Page Number', 'style':'height:3rem;'}
-	))
-	
-	nofpages = forms.IntegerField(required = True, widget = forms.NumberInput(
-		attrs={'class':'form-control', 'placeholder':'Number of Pages', 'style':'height:3rem;'}
-	))
-
-	file = forms.FileField(widget=forms.ClearableFileInput(attrs={'class':'form-control'}))
-
-	def clean(self):
-		for file in self.files.getlist("file"):
-			if not (file.content_type == 'application/pdf' and file.size <= 15728640):
-				raise forms.ValidationError('')
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
 
 class PassFileForm(forms.Form):
-	password = forms.CharField(required = True, widget = forms.PasswordInput(
-		attrs={'class':'form-control', 'placeholder':'Enter Password', 'style':'height:3rem;'}
-	))
+	password = forms.CharField(
+		required = True,
+		label = 'Password:',
+		widget = forms.PasswordInput(
+			attrs={'class':'form-control'}
+		),
+	)
 
-	file = forms.FileField(widget=forms.ClearableFileInput(
-		attrs={'class':'form-control'}
-	))
+	file = forms.FileField(
+		required = True,
+		label = 'Select PDF:',
+		help_text = 'Size limit: 15mb',
+		widget=forms.ClearableFileInput(
+			attrs={'class':'form-control'}
+		),
+	)
 
 	def clean(self):
+		exceptions = []
+
 		for file in self.files.getlist("file"):
-			if not (file.content_type == 'application/pdf' and file.size <= 15728640):
-				raise forms.ValidationError('')
+			print(file.content_type)
+			if not (file.content_type == 'application/pdf'):
+				exceptions.append('Selected file type is not pdf!')
+			if not (file.size <= 15728640):
+				exceptions.append('Selected file size is more than 15mb!')
+
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
 
 class ImagesForm(forms.Form):
-	files = forms.FileField(widget=forms.ClearableFileInput(
-		attrs={'multiple': True, 'class':'form-control'}
-	))
+	files = forms.FileField(
+		required = True,
+		label = 'Select Images:',
+		help_text = 'Size limit: 5mb',
+		widget=forms.ClearableFileInput(
+			attrs={'multiple': True, 'class':'form-control'}
+		)
+	)
 
 	def clean(self):
-		imageformats = ['image/jpeg', 'image/png', 'image/gif']
+		imageformats = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+		exceptions = []
+
 		for file in self.files.getlist("files"):
-			if not ((file.content_type in imageformats) and (file.size <= 5242880)):
-				raise forms.ValidationError('')
+			if not (file.content_type in imageformats):
+				exceptions.append('Selected file type is not image!')
+			if not (file.size <= 5242880):
+				exceptions.append('Selected file size is more than 5mb!')
+
+		print(exceptions)
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
 
 class ImageForm(forms.Form):
-	file = forms.FileField(widget=forms.ClearableFileInput(
-		attrs={'class':'form-control'}
-	))
+	file = forms.FileField(
+		required = True,
+		label = 'Select Image:',
+		help_text = 'Size limit: 5mb',
+		widget=forms.ClearableFileInput(
+			attrs={'class':'form-control'}
+		)
+	)
 
 	def clean(self):
-		imageformats = ['image/jpeg', 'image/png', 'image/gif']
-		for file in self.files.getlist("files"):
-			if not ((file.content_type in imageformats) and (file.size <= 5242880)):
-				raise forms.ValidationError('')
+		imageformats = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+		exceptions = []
+
+		for file in self.files.getlist("file"):
+			if not (file.content_type in imageformats):
+				exceptions.append('Selected file type is not image!')
+			if not (file.size <= 5242880):
+				exceptions.append('Selected file size is more than 5mb!')
+
+		print(exceptions)
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
 
 class CustomSearchForm(forms.Form):
 	search_bar = forms.CharField(required=True,widget=forms.TextInput(

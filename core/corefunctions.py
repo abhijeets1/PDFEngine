@@ -44,8 +44,8 @@ def split_file(file, pageno, nofpages, timestamp):
 
 	return splited_file_name
 
-def validate_pdf_split(file, pageno, nofpages):
-	pdf_file_path = 'pdfsplit/static/upload/' + file.name
+def validate_pdf_split(filename, pageno, nofpages):
+	pdf_file_path = 'pdfsplit/static/upload/' + filename
 
 	pdf = open(pdf_file_path, 'rb+')
 	pdfreader = PdfFileReader(pdf)

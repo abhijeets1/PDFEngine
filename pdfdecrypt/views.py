@@ -6,10 +6,6 @@ from time import time
 
 # Create your views here.
 def index(request):
-	form = PassFileForm()
-	return render(request, "pdfdecrypt/index.html", {'form':form})
-
-def decrypt(request):
 	if request.method == 'POST':
 		form = PassFileForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -22,11 +18,12 @@ def decrypt(request):
 			cfs.handle_uploaded_file(file, location)
 			decrypted_file_name = cfs.decrypt_file(file, password, timestamp)
 			if decrypted_file_name == True:
-				return HttpResponseRedirect('../')
+				return HttpResponseRedirect('./')
 			return render(request, "pdfdecrypt/decrypt.html",
 				{'filename':filename_b, 'decrypted_file_name':decrypted_file_name,}
 			)
 		else:
-			return HttpResponseRedirect('../')
+			return render(request, "pdfdecrypt/index.html", {'form':form})
 	else:
-		return HttpResponseRedirect('../')
+		form = PassFileForm()
+		return render(request, "pdfdecrypt/index.html", {'form':form})

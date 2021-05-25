@@ -6,10 +6,6 @@ from time import time
 
 # Create your views here.
 def index(request):
-	form = ImagesForm()
-	return render(request, "imgtopdf/index.html", {'form':form})
-
-def topdf(request):
 	if request.method == 'POST':
 		filenames_b = []
 		filenames_a = []
@@ -27,6 +23,7 @@ def topdf(request):
 				{'filelist':filenames_b, 'topdf_file_name':topdf_file_name,}
 			)
 		else:
-			return HttpResponseRedirect('../')
+			return render(request, "imgtopdf/index.html", {'form':form})
 	else:
-		return HttpResponseRedirect('../')
+		form = ImagesForm()
+		return render(request, "imgtopdf/index.html", {'form':form})

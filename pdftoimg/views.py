@@ -6,10 +6,6 @@ from time import time
 
 # Create your views here.
 def index(request):
-	form = FileForm()
-	return render(request, "pdftoimg/index.html", {'form':form})
-
-def toimg(request):
 	if request.method == 'POST':
 		form = FileForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -24,6 +20,7 @@ def toimg(request):
 				{'filename':filename_b, 'timestamp':timestamp, 'imagesname':imagesname,}
 			)
 		else:
-			return HttpResponseRedirect('../')
+			return render(request, "pdftoimg/index.html", {'form':form})
 	else:
-			return HttpResponseRedirect('../')
+		form = FileForm()
+		return render(request, "pdftoimg/index.html", {'form':form})

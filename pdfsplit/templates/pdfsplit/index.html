@@ -10,26 +10,29 @@
 	</div>
 	<div class="container-fluid mt-4 mb-10">
 		<div class="row justify-content-center">
-			<div class="col-lg-5 col-10 bg-white p-5 text-center rounded shadow-sm">
-				<form action="{% url 'split' %}" method="POST" enctype="multipart/form-data">
+			<div class="col-lg-5 col-10 bg-white p-4 p-lg-5 rounded shadow-sm">
+				<form action="" method="POST" enctype="multipart/form-data" novalidate>
 					{% csrf_token %}
-					<p><b>Select Pdf:</b></p>
-					<div class="row g-0 mb-3">
-						<div class="col-6">{{form.pageno}}</div>
-						<div class="col-6">{{form.nofpages}}</div>
-					</div>
-					<div class="input-group">
-						{{form.file}}
-						<div class="input-group-append">
-							<button class="btn btn-success" type="submit"><i class="fas fa-file-upload"></i></button>
+					{% if form.non_field_errors %}
+						<div class="alert alert-danger p-2">
+							{% for error in form.non_field_errors %}
+								<p class="m-0">{{error}}</p>
+							{% endfor %}
 						</div>
-					</div>
+					{% endif %}
+					{% for field in form %}
+						<p class="mb-1">{{field.label}}</p>
+						{{field}}
+						<p class="mb-0 text-muted fst-italic"><small>{{field.help_text}}</small></p>
+						{% if field.errors %}
+							{% for error in field.errors %}
+								<p class="mb-0 text-danger fst-italic"><small>{{error}}</small></p>
+							{% endfor %}
+						{% endif %}
+						<p></p>
+					{% endfor %}
+					<div style="text-align: right;"><button class="btn btn-success" type="submit">Submit</button></div>
 				</form>
-				<div class="alert alert-warning p-2 mt-4" role="alert" style="text-align: left;">
-					Note:<br>
-					1. Only PDFs under 15mb.<br>
-					2. Provide valid initial page number and number of pages.
-				</div>
 			</div>
 		</div>
 	</div>

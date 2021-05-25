@@ -6,10 +6,6 @@ from time import time
 
 # Create your views here.
 def index(request):
-	form = ImageForm()
-	return render(request, "imgtotext/index.html", {'form':form})
-
-def totext(request):
 	if request.method == 'POST':
 		form = ImageForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -25,6 +21,7 @@ def totext(request):
 				{'filename':filename_b, 'text':text, 'text_file_name':text_file_name,}
 			)
 		else:
-			return HttpResponseRedirect('../')
+			return render(request, "imgtotext/index.html", {'form':form})
 	else:
-		return HttpResponseRedirect('../')
+		form = ImageForm()
+		return render(request, "imgtotext/index.html", {'form':form})

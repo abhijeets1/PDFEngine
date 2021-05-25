@@ -1,15 +1,12 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from core import corefunctions as cfs
-from core.forms import SplitForm
+from django.shortcuts import render
+from .forms import SplitForm
 from time import time
 
 # Create your views here.
 def index(request):
-	form = SplitForm()
-	return render(request, "pdfsplit/index.html", {'form':form})
-
-def split(request):
+	print(request.method)
 	if request.method == 'POST':
 		form = SplitForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -21,13 +18,14 @@ def split(request):
 			filename_b = file.name
 			file.name = timestamp + ' ' + file.name
 			cfs.handle_uploaded_file(file, location)
-			if cfs.validate_pdf_split(file, pageno, nofpages):
-				return HttpResponseRedirect('../')
+			if cfs.validate_pdf_split(file.name, pageno, nofpages):
+				return HttpResponseRedirect('./')
 			splited_file_name = cfs.split_file(file, pageno, nofpages, timestamp)
 			return render(request, "pdfsplit/split.html",
 				{'filename':filename_b, 'splited_file_name':splited_file_name,}
 			)
 		else:
-			return HttpResponseRedirect('../')
+			return render(request, "pdfsplit/index.html", {'form':form})
 	else:
-		return HttpResponseRedirect('../')
+		form = SplitForm()
+		return render(request, "pdfsplit/index.html", {'form':form})	
