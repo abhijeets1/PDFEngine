@@ -1,0 +1,30 @@
+def clean(self):
+		pdf_file_name = self.files['file'].name
+		print(pdf_file_name)
+		cleaned_data = super().clean()
+		print(cleaned_data['pageno'])
+		print(cleaned_data['nofpages'])
+		exceptions = []
+
+		pdf = open(pdf_file_name, 'rb+')
+		pdfreader = PdfFileReader(pdf)
+		pdfpages = pdfreader.numPages
+		temp = (pdfpages - pageno) + 1
+
+		if not (pageno > 0):	
+			exceptions.append('Initial page number is zero or less than 0!')
+		if not (nofpages > 0):
+			exceptions.append('Number of pages is zero or less than 0!')
+		if not (pageno <= pdfpages):
+			exceptions.append('Initial page number is more than total pages!')
+		if not (temp >= nofpages):
+			exceptions.append('Number of pages is more than total pages!')
+
+		for file in self.files.getlist("file"):
+			if not (file.content_type == 'application/pdf'):
+				exceptions.append('Uploaded file is not a PDF!')
+			if not (file.size <= 15728640):
+				exceptions.append('Uploaded file size is more than 15mb!')
+
+		if len(exceptions) > 0:
+			raise forms.ValidationError(exceptions)
