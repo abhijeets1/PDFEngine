@@ -169,3 +169,29 @@ def img_to_text(file, timestamp):
 	textfile.write(text)
 
 	return (text, text_file_name)
+
+def pdf_copy_protect(filename, timestamp):
+	pdf_file_path = 'pdfcprotect/static/upload/' + filename
+	images_folder_path = 'pdfcprotect/static/upload/cprotected/' + timestamp
+	imagepath = images_folder_path + '/'
+	imagesnames = []
+	cprotected_file_name = timestamp + '.pdf'
+	cprotected_file_path = imagepath + cprotected_file_name
+
+	os.mkdir(images_folder_path)
+	images = convert_from_path(pdf_file_path)
+	for i in range(len(images)):
+		imagename = 'page' + str(i) + '.jpg'
+		images[i].save(imagepath + imagename, 'JPEG')
+		imagesnames.append(imagename)
+
+	temp = []
+	pdffile = open(cprotected_file_path, "wb+")
+	for imagename in imagesnames:
+		image = Image.open(imagepath + imagename)
+		pdf_bytes = img2pdf.convert(image.filename)
+		temp.append(image.filename)
+		image.close()
+	
+	pdffile.write(img2pdf.convert(temp))
+	return cprotected_file_name

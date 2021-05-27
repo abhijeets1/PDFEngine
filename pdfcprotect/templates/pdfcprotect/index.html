@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+	<div class="container-fluid mt-5">
+		<div class="row justify-content-around">
+			<div class="col-lg-5 col-10 bg-white p-2 rounded text-center shadow-sm">
+				<h2 class="m-0">PDF COPY PROTECT</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid mt-4 mb-10">
+		<div class="row justify-content-center">
+			<div class="col-lg-5 col-10 bg-white p-5 rounded shadow-sm">
+				<form action="" method="POST" enctype="multipart/form-data" novalidate>
+					{% csrf_token %}
+					{% if form.non_field_errors %}
+						<div class="alert alert-danger p-2">
+							{% for error in form.non_field_errors %}
+								<p class="m-0">{{error}}</p>
+							{% endfor %}
+						</div>
+					{% endif %}
+					{% for field in form %}
+						<p class="mb-1">{{field.label}}</p>
+						{{field}}
+						<p class="mb-0 text-muted fst-italic"><small>{{field.help_text}}</small></p>
+						{% if field.errors %}
+							{% for error in field.errors %}
+								<p class="mb-0 text-danger fst-italic"><small>{{error}}</small></p>
+							{% endfor %}
+						{% endif %}
+						<p></p>
+					{% endfor %}
+					<div style="text-align: right;"><button class="btn btn-success" type="submit">Submit</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'pdftoimg',
     'pdftoword',
     'imgtotext',
+    'pdfcprotect',
 ]
 
 MIDDLEWARE = [

@@ -1,16 +1,20 @@
+
+
 * {
 	font-family: 'Sen', sans-serif;
 }
+
 body {
-  position: relative;
+	position: relative;
 }
 
 html {
 	background: #F0F3F5;
 }
 
-html, body {
-  overflow-x: hidden;
+html,
+body {
+	overflow-x: hidden;
 }
 
 img {
@@ -33,73 +37,87 @@ ul {
 }
 
 .g1 {
-background: #55EFC4;
-background: -webkit-radial-gradient(bottom right, #55EFC4, #00B895);
-background: -moz-radial-gradient(bottom right, #55EFC4, #00B895);
-background: radial-gradient(to top left, #55EFC4, #00B895);
+	background: #55EFC4;
+	background: -webkit-radial-gradient(bottom right, #55EFC4, #00B895);
+	background: -moz-radial-gradient(bottom right, #55EFC4, #00B895);
+	background: radial-gradient(to top left, #55EFC4, #00B895);
 }
 
 .g2 {
-background: #81ECEC;
-background: -webkit-radial-gradient(bottom right, #81ECEC, #00CEC9);
-background: -moz-radial-gradient(bottom right, #81ECEC, #00CEC9);
-background: radial-gradient(to top left, #81ECEC, #00CEC9);
+	background: #81ECEC;
+	background: -webkit-radial-gradient(bottom right, #81ECEC, #00CEC9);
+	background: -moz-radial-gradient(bottom right, #81ECEC, #00CEC9);
+	background: radial-gradient(to top left, #81ECEC, #00CEC9);
 }
 
 .g3 {
-background: #74B9FF;
-background: -webkit-radial-gradient(bottom right, #74B9FF, #0985E3);
-background: -moz-radial-gradient(bottom right, #74B9FF, #0985E3);
-background: radial-gradient(to top left, #74B9FF, #0985E3);
+	background: #74B9FF;
+	background: -webkit-radial-gradient(bottom right, #74B9FF, #0985E3);
+	background: -moz-radial-gradient(bottom right, #74B9FF, #0985E3);
+	background: radial-gradient(to top left, #74B9FF, #0985E3);
 }
 
 .g4 {
-background: #A39CFE;
-background: -webkit-radial-gradient(bottom right, #A39CFE, #6C5CE7);
-background: -moz-radial-gradient(bottom right, #A39CFE, #6C5CE7);
-background: radial-gradient(to top left, #A39CFE, #6C5CE7);
+	background: #A39CFE;
+	background: -webkit-radial-gradient(bottom right, #A39CFE, #6C5CE7);
+	background: -moz-radial-gradient(bottom right, #A39CFE, #6C5CE7);
+	background: radial-gradient(to top left, #A39CFE, #6C5CE7);
 }
 
 .g5 {
-background: #D5DBDE;
-background: -webkit-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
-background: -moz-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
-background: radial-gradient(to top left, #D5DBDE, #9EA7AA);
+	background: #D5DBDE;
+	background: -webkit-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
+	background: -moz-radial-gradient(bottom right, #D5DBDE, #9EA7AA);
+	background: radial-gradient(to top left, #D5DBDE, #9EA7AA);
 }
 
 .g6 {
-background: #FFE592;
-background: -webkit-radial-gradient(bottom right, #FFE592, #FFBF47);
-background: -moz-radial-gradient(bottom right, #FFE592, #FFBF47);
-background: radial-gradient(to top left, #FFE592, #FFBF47);
+	background: #FFE592;
+	background: -webkit-radial-gradient(bottom right, #FFE592, #FFBF47);
+	background: -moz-radial-gradient(bottom right, #FFE592, #FFBF47);
+	background: radial-gradient(to top left, #FFE592, #FFBF47);
 }
 
 .g7 {
-background: #FAB1A0;
-background: -webkit-radial-gradient(bottom right, #FAB1A0, #E17055);
-background: -moz-radial-gradient(bottom right, #FAB1A0, #E17055);
-background: radial-gradient(to top left, #FAB1A0, #E17055);
+	background: #FAB1A0;
+	background: -webkit-radial-gradient(bottom right, #FAB1A0, #E17055);
+	background: -moz-radial-gradient(bottom right, #FAB1A0, #E17055);
+	background: radial-gradient(to top left, #FAB1A0, #E17055);
 }
 
 .g8 {
-background: #FF7675;
-background: -webkit-radial-gradient(bottom right, #FF7675, #D63132);
-background: -moz-radial-gradient(bottom right, #FF7675, #D63132);
-background: radial-gradient(to top left, #FF7675, #D63132);
+	background: #FF7675;
+	background: -webkit-radial-gradient(bottom right, #FF7675, #D63132);
+	background: -moz-radial-gradient(bottom right, #FF7675, #D63132);
+	background: radial-gradient(to top left, #FF7675, #D63132);
 }
 
 .g9 {
-background: #FD7AA9;
-background: -webkit-radial-gradient(bottom right, #FD7AA9, #E84494);
-background: -moz-radial-gradient(bottom right, #FD7AA9, #E84494);
-background: radial-gradient(to top left, #FD7AA9, #E84494);
+	background: #FD7AA9;
+	background: -webkit-radial-gradient(bottom right, #FD7AA9, #E84494);
+	background: -moz-radial-gradient(bottom right, #FD7AA9, #E84494);
+	background: radial-gradient(to top left, #FD7AA9, #E84494);
 }
 
 .g10 {
-background: #636E72;
-background: -webkit-radial-gradient(bottom right, #636E72, #2D3436);
-background: -moz-radial-gradient(bottom right, #636E72, #2D3436);
-background: radial-gradient(to top left, #636E72, #2D3436);
+	background: #636E72;
+	background: -webkit-radial-gradient(bottom right, #636E72, #2D3436);
+	background: -moz-radial-gradient(bottom right, #636E72, #2D3436);
+	background: radial-gradient(to top left, #636E72, #2D3436);
+}
+
+.g11 {
+	background: #f4cca4;
+	background: -webkit-radial-gradient(bottom right, #f4cca4, #d99879);
+	background: -moz-radial-gradient(bottom right, #f4cca4, #d99879);
+	background: radial-gradient(to top left, #f4cca4, #d99879);
+}
+
+.g12 {
+	background: #9e42a7;
+	background: -webkit-radial-gradient(bottom right, #9e42a7, #6a2c70);
+	background: -moz-radial-gradient(bottom right, #9e42a7, #6a2c70);
+	background: radial-gradient(to top left, #9e42a7, #6a2c70);
 }
 
 .box {
@@ -112,10 +130,10 @@ background: radial-gradient(to top left, #636E72, #2D3436);
 }
 
 .centerBlock {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .atag-w {
@@ -132,13 +150,12 @@ background: radial-gradient(to top left, #636E72, #2D3436);
 	margin-bottom: 10rem;
 }
 
-
 .rotating {
 	transition: 0.5s;
 }
 
 .rotating:hover {
-  animation: rotating 1s linear infinite;
+	animation: rotating 1s linear infinite;
 }
 
 .rotating-always {
@@ -146,12 +163,12 @@ background: radial-gradient(to top left, #636E72, #2D3436);
 }
 
 @keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .logo {

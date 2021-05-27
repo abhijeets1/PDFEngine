@@ -30,4 +30,5 @@ urlpatterns = [
 		path('pdftoimg/', include('pdftoimg.urls')),
 		path('pdftoword/', include('pdftoword.urls')),
 		path('imgtotext/', include('imgtotext.urls')),
+		path('pdfcprotect/', include('pdfcprotect.urls')),
 ]
