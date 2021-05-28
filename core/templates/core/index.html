@@ -1,7 +1,15 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-	<div class="text-center mt-5">
+	<div class="container mt-5">
+		<div class="row justify-content-center mx-1 px-1">
+			<div class="col-lg-8 alert alert-success alert-dismissible fade show mx-2" role="alert">
+				<a href="#newfeature" class="text-decoration-none text-success">New Feature Added - <strong>"Copy Protect PDF"</strong></a>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
 		<img class="logo" src="{% static 'core/images/logo.png' %}">
 	</div>
 	<div class="container mt-5">
