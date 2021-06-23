@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 	<div class="text-center mt-5">
-		<img class="logo" src="{% static 'core/images/logo.png' %}">
+		<img class="logo-small" src="{% static 'core/images/logo.png' %}">
 	</div>
 	<div class="container mt-5 mb-10">
 		<form class="row justify-content-center" action="{% url 'pdfsearch' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
