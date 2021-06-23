@@ -57,7 +57,7 @@ ul {
 .g6 {
 	background: #4DDBC4;
 }
-/**/
+
 .g7 {
 	background: #4DC4FF;
 }
@@ -136,6 +136,10 @@ ul {
 
 .logo {
 	width: 20rem;
+}
+
+.logo-small {
+	width: 15rem;
 }
 
 .buttons a {
